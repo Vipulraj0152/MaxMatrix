@@ -1,4 +1,4 @@
-```markdown
+markdown
 # ESP8266 MAX7219 Matrix Display Controller
 
 This project allows you to control a MAX7219 matrix display using an ESP8266 microcontroller. It features a web interface that enables users to send messages to the display, select scroll direction, invert the display, and adjust scrolling speed.
