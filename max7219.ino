@@ -53,13 +53,14 @@ const char WebPage[] =
 "<head>"
 "<meta charset='UTF-8'>"
 "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
-"<title>MD_Parola Message Control</title>"
+"<title>Message Control by Siddhartrockx</title>"
 "<style>"
-"body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f4; }"
-"h1 { text-align: center; color: #333; }"
-"form { max-width: 600px; margin: auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }"
-"label { font-size: 18px; margin-bottom: 10px; display: block; }"
-"input[type='text'], input[type='range'] { width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }"
+"body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #1a1a1a; color: #f4f4f4; }"
+"h1 { text-align: center; color: #f4f4f4; }"
+"form { max-width: 600px; margin: auto; padding: 20px; background-color: #333; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }"
+"label { font-size: 18px; margin-bottom: 10px; display: block; color: #f4f4f4; }"
+"input[type='text'], input[type='range'] { width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #555; font-size: 16px; background-color: #444; color: #fff; }"
+"input[type='text']:focus, input[type='range']:focus { border-color: #4CAF50; outline: none; }"
 "input[type='radio'] { margin-right: 10px; }"
 "input[type='submit'] { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }"
 "input[type='submit']:hover { background-color: #45a049; }"
@@ -69,7 +70,7 @@ const char WebPage[] =
 "function sendData(event) {"
 "  event.preventDefault();" // Prevent form from refreshing the page
 "  var request = new XMLHttpRequest();"
-"  var msg = document.getElementById('message').value;"
+"  var msg = document.getElementById('message').value.trim();"
 "  var scroll = document.querySelector('input[name=\"scrollType\"]:checked').value;"
 "  var invert = document.querySelector('input[name=\"invert\"]:checked').value;"
 "  var speed = document.getElementById('speed').value;"
@@ -105,6 +106,11 @@ const char WebPage[] =
 "</form>"
 "</body>"
 "</html>";
+
+
+
+
+
 
 // Function to convert hexadecimal character to integer
 uint8_t htoi(char c)
