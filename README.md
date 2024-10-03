@@ -77,13 +77,3 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-### Instructions to Use the README:
-
-1. **Update Links**: Replace `yourusername` in the clone URL with your actual GitHub username.
-2. **Wi-Fi Credentials**: Ensure you provide guidance on how to set the Wi-Fi credentials.
-3. **Check Hardware Connections**: Confirm that the hardware connection details match your setup.
-4. **Additional Instructions**: Add any additional instructions relevant to your project, like troubleshooting tips or notes about specific hardware configurations.
-
-This README will give users a clear understanding of your project and how to use it!
