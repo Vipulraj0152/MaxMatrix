@@ -28,8 +28,11 @@
 MD_Parola P = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 
 // WiFi login parameters
-const char* ssid = "SSID";
-const char* password = "PASS";
+const char* ssid = "Siddhartrockx";
+const char* password = "$iddhart@Wif@0152";
+
+// Custom device name for ESP8266
+const char* deviceName = "MaxMatrix";
 
 // WiFi Server object
 WiFiServer server(80);
@@ -40,7 +43,7 @@ textEffect_t	scrollEffect = PA_SCROLL_LEFT;
 
 // Message buffers shared by Wifi and Scrolling functions
 #define BUF_SIZE  512
-char curMessage[BUF_SIZE];
+char curMessage[BUF_SIZE] = "Waiting for WiFi connection..."; // Default message
 char newMessage[BUF_SIZE];
 bool newMessageAvailable = false;
 
@@ -108,18 +111,6 @@ const char WebPage[] =
 "</html>";
 
 
-
-
-
-
-// Function to convert hexadecimal character to integer
-uint8_t htoi(char c)
-{
-  c = toupper(c);
-  if ((c >= '0') && (c <= '9')) return(c - '0');
-  if ((c >= 'A') && (c <= 'F')) return(c - 'A' + 0xa);
-  return(0);
-}
 
 // Function to handle incoming HTTP requests
 void handleRequest(char *message)
@@ -190,20 +181,41 @@ void handleWiFi()
 void setup()
 {
   Serial.begin(115200);
-  
+
+  // Initialize the Parola display
   P.begin();
   P.displayClear();
   P.displaySuspend(false);
-  P.displayScroll(curMessage, PA_LEFT, scrollEffect, frameDelay);
+
+  // Boot screen with welcome message animation
+const char* bootMessage = "SidNaz";  // Increase this value to make the animation slower
+P.displayText(bootMessage, PA_CENTER, frameDelay, 25, PA_SCAN_HORIZ, PA_NO_EFFECT);
+
+
+
+  // Animate the boot screen
+  while (!P.displayAnimate()) {
+    // Wait for the boot screen to finish
+  }
   
+  // Set the ESP's name for the Wi-Fi network
+  WiFi.hostname("MaxMatrix v1.0");  // Setting the ESP name
   WiFi.begin(ssid, password);
+
+  // Connect to Wi-Fi
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(500);
+    Serial.print(".");
   }
-  
+
+  // Start the server
   server.begin();
+
+  // Display IP address after successful Wi-Fi connection
   sprintf(curMessage, "IP: %03d.%03d.%03d.%03d", WiFi.localIP()[0], WiFi.localIP()[1], WiFi.localIP()[2], WiFi.localIP()[3]);
+  P.displayScroll(curMessage, PA_LEFT, scrollEffect, frameDelay);
+
 }
 
 void loop()
