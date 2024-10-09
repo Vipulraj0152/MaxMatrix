@@ -6,7 +6,7 @@
 // Turn on debug statements to the serial output
 #define  DEBUG  0
 
-#if  DEBUG
+#if debug part
 #define PRINT(s, x) { Serial.print(F(s)); Serial.print(x); }
 #define PRINTS(x) Serial.print(F(x))
 #define PRINTX(x) Serial.println(x, HEX)
