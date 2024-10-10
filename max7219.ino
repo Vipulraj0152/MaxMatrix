@@ -11,6 +11,7 @@
 #define PRINTS(x) Serial.print(F(x))
 #define PRINTX(x) Serial.println(x, HEX)
 #else
+
 #define PRINT(s, x)
 #define PRINTS(x)
 #define PRINTX(x)
