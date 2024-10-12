@@ -209,7 +209,7 @@ P.displayText(bootMessage, PA_CENTER, frameDelay, 25, PA_SCAN_HORIZ, PA_NO_EFFEC
     delay(500);
     Serial.print(".");
   }
-
+// Starting the server for data transfer from MAX to ESP32 
   // Start the server
   server.begin();
 
